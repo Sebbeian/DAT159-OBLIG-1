@@ -1,0 +1,74 @@
+public class A {
+	@Test
+	void Run() {
+		B b new A().new B();
+		C1 c1 = b.new C1();
+		C2 c2 = b.new C2();
+		assertEquals(3, c1.tre());
+		assertEquals(4, c2.fire());
+	}
+	public int hentInt() {
+		return 1;
+	}
+	
+	public class B extends A {
+		int integer = 2;
+	}
+	
+	public class C1 extends B {
+		public int tre(){
+			return getInteger() * 3;
+		}
+	}
+	
+	public class C2 extends B {
+		public int fire() {
+			return getInteger() * 2;
+		}
+		
+		public int getInteger() {
+			return integer;
+		}
+	}
+}
+
+//Her vil testen være ok
+
+
+
+public class A {
+	@Test
+	void Run() {
+		B b new A().new B();
+		C1 c1 = b.new C1();
+		C2 c2 = b.new C2();
+		assertEquals(3, c1.tre());
+		assertEquals(4, c2.fire());
+	}
+	public int hentInt() {
+		return 1;
+	}
+	
+	public class B extends A {
+		int integer = 2;
+		
+		public int getInteger() {
+			return integer;
+		}
+	}
+	
+	public class C1 extends B {
+		public int tre(){
+			return getInteger() * 3;
+		}
+	}
+	
+	public class C2 extends B {
+		public int fire() {
+			return getInteger() * 2;
+		}
+	}
+}
+
+/* Brukt pull-up på getInteger i C2 til B.
+Her vil ikke testen fungere. */
